@@ -20,7 +20,7 @@ module.exports = {
   serviceWorker: true,
   themeConfig: {
     lastUpdated: 'Last Updated',
-    repo: 'docschina/vuepress',
+    repo: 'fengchenzhihun1/vuepressblog',
     editLinks: true,
     docsDir: 'docs',
     locales: {
@@ -28,34 +28,46 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页',
         nav: [
           {
-            text: '每日学习',
-            link: '/everyDayStudy/',
-          },
-          {
-            text: '英语学习',
-            link: '/englishStudy/'
-          },
-          {
-            text: '算法学习',
-            link: '/letterrcode/'
+            text: '读书笔记',
+            link: '/readnot/'
           }
         ],
         sidebar: {
-          '/everyDayStudy/': genSidebarConfig('指南')
+          '/readnot/': genSidebarConfig('指南')
         }
       }
     }
-  }
+  },
+  plugins: [
+    ['@vuepress/back-to-top', true],
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: true
+    }],
+    ['@vuepress/medium-zoom', true],
+    ['@vuepress/google-analytics', {
+      ga: 'UA-128189152-1'
+    }],
+    ['container', {
+      type: 'vue',
+      before: '<pre class="vue-container"><code>',
+      after: '</code></pre>',
+    }],
+    ['container', {
+      type: 'upgrade',
+      before: info => `<UpgradePath title="${info}">`,
+      after: '</UpgradePath>',
+    }],
+  ]
 }
 
-function genSidebarConfig (title) {
+function genSidebarConfig (groupA) {
   return [
     {
-      title,
+      title:groupA,
       collapsable: false,
       children: [
-        '',
-        'aaa'
+        'microServiceFromDesignToDeploymen'
       ]
     }
   ]
