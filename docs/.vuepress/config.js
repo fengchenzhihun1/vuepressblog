@@ -3,7 +3,7 @@ module.exports = {
   locales: {
     '/': {
       title: '陈峰的博客',
-      description: 'Vue 驱动的静态站点生成工具'
+      description: '记录我的IT成长历程'
     }
   },
   head: [
@@ -30,10 +30,69 @@ module.exports = {
           {
             text: '读书笔记',
             link: '/readnot/'
+          },{
+             text: '网站链接',
+             items: [
+                {text: '视频网站',
+                 items:[
+                  { text:'哔哩哔哩',
+                    link:'https://www.bilibili.com/account/history'
+                  },
+                  {
+                    text:'慕课网',
+                    link:'https://class.imooc.com/'
+                  }
+                  ,
+                  {
+                    text:'尚硅谷谷粒学院',
+                    link:'http://www.gulixueyuan.com/course/explore/java?orderBy=latest'
+                  }
+                 ]
+                },
+                {
+                  text:'常用博客',
+                  items: [
+                     {  
+                       text:"我的博客", 
+                       link:'https://blog.csdn.net/u012878380'
+                     } 
+                  ]
+                },{
+                  text:'常用工具',
+                  items:[{
+                     text:'PDF转换器',
+                     link:'https://smallpdf.com/cn/pdf-to-word'
+                  },{
+                  text:'json编辑器',
+                  link:'https://www.bejson.com/jsoneditoronline'
+                  },{
+                    text:'生成工具神器',
+                    link:'https://tableconvert.com/?output=text&data=id%2C%20name%2C%20age%2C%20gender%0A1%2C%20Lawrence%2C%2039%2C%20M%0A2%2C%20Oliver%2C%2025%2C%20M%0A3%2C%20Roberta%2C%2017%2C%20F%0A4%2C%20Bamboo%2C%2070%2C%20F%0A'
+
+                  }
+                  ,{
+                    text:'CRON表达式',
+                    link:'http://cron.qqe2.com/'
+                  },{
+                    text:'代码格式化工具',
+                    link:'http://tool.oschina.net/codeformat/html'
+                  },{
+                    text:'数学公式',
+                    link:'https://zh.numberempire.com/latexequationeditor.php'
+                  },{
+                    text:'二维码生成工具',
+                    link:'https://cli.im/'
+                  },{
+                    text:'',
+                    linlk:''
+                  }
+                ]
+                }
+             ]
           }
         ],
         sidebar: {
-          '/readnot/': genSidebarConfig('指南')
+          '/readnot/': genSidebarConfig('java基础','微服务')
         }
       }
     }
@@ -61,14 +120,23 @@ module.exports = {
   ]
 }
 
-function genSidebarConfig (groupA) {
+function genSidebarConfig (groupA, groupB) {
   return [
     {
       title:groupA,
       collapsable: false,
       children: [
+        'springThink'
+      ]
+    },
+    {
+      title:groupB,
+      collapsable: false,
+      children: [
         'microServiceFromDesignToDeploymen'
       ]
     }
+
+
   ]
 }
