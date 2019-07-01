@@ -83,10 +83,39 @@ module.exports = {
                     text:'二维码生成工具',
                     link:'https://cli.im/'
                   },{
-                    text:'',
-                    linlk:''
+                    text:'在线编码转换器',
+                    linlk:'http://tool.chinaz.com/tools/native_ascii.aspx'
                   }
                 ]
+                },{
+                  text:'GitHub',
+                  items:[
+                    {
+                      text:'JavaGuide',
+                      link:'https://github.com/Snailclimb/JavaGuide'
+                    },{
+                      text:'CS-Notes',
+                      link:'https://github.com/CyC2018/CS-Notes'
+                    },{
+                      text:'free-programming-books-zh_CN',
+                      link:'https://github.com/justjavac/free-programming-books-zh_CN'
+                    },{
+                      text:'advanced-java',
+                      link:'https://github.com/doocs/advanced-java'
+                    }
+                    ,{
+                      text:'',
+                      link:''
+                    }
+                    ,{
+                      text:'',
+                      link:''
+                    }
+                    ,{
+                      text:'',
+                      link:''
+                    }
+                  ]
                 }
              ]
           }
