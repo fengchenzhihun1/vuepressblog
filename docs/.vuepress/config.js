@@ -29,7 +29,7 @@ module.exports = {
         nav: [
           {
             text: '读书笔记',
-            link: '/readnot/'
+            link: '/readnote/'
           },{
              text: '网站链接',
              items: [
@@ -121,7 +121,7 @@ module.exports = {
           }
         ],
         sidebar: {
-          '/readnot/': genSidebarConfig('java基础','微服务')
+          '/readnote/': genSidebarConfig('java基础','微服务')
         }
       }
     }
