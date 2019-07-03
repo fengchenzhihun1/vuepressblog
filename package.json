@@ -1,5 +1,5 @@
 {
-  "name": "vuepress",
+  "name": "blog",
   "version": "0.7.0",
   "description": "Minimalistic doc generator with Vue component based layout system",
   "main": "lib/index.js",
