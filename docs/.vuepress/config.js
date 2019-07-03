@@ -118,10 +118,14 @@ module.exports = {
                   ]
                 }
              ]
+          },{
+            text:'项目总结',
+            link:'/projectsummary/'
           }
         ],
         sidebar: {
-          '/readnote/': genSidebarConfig('java基础','微服务')
+          '/readnote/': genSidebarConfig('java基础','微服务'),
+          '/projectsummary/':genSideProblemConfig('数据库')
         }
       }
     }
@@ -167,5 +171,17 @@ function genSidebarConfig (groupA, groupB) {
     }
 
 
+  ]
+}
+function genSideProblemConfig (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
+        'database'
+      ]
+    }
   ]
 }
