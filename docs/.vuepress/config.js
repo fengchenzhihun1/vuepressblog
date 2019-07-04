@@ -58,7 +58,7 @@ module.exports = {
                      } 
                   ]
                 },{
-                  text:'常用工具',
+                  text:'常用工具One',
                   items:[{
                      text:'PDF转换器',
                      link:'https://smallpdf.com/cn/pdf-to-word'
@@ -68,11 +68,9 @@ module.exports = {
                   },{
                     text:'生成工具神器',
                     link:'https://tableconvert.com/?output=text&data=id%2C%20name%2C%20age%2C%20gender%0A1%2C%20Lawrence%2C%2039%2C%20M%0A2%2C%20Oliver%2C%2025%2C%20M%0A3%2C%20Roberta%2C%2017%2C%20F%0A4%2C%20Bamboo%2C%2070%2C%20F%0A'
-
-                  }
-                  ,{
+                  },{
                     text:'CRON表达式',
-                    link:'http://cron.qqe2.com/'
+                    link:'http://cron.qqe2.com'
                   },{
                     text:'代码格式化工具',
                     link:'http://tool.oschina.net/codeformat/html'
@@ -81,13 +79,11 @@ module.exports = {
                     link:'https://zh.numberempire.com/latexequationeditor.php'
                   },{
                     text:'二维码生成工具',
-                    link:'https://cli.im/'
-                  },{
-                    text:'在线编码转换器',
-                    linlk:'http://tool.chinaz.com/tools/native_ascii.aspx'
+                    link:'https://cli.im'
                   }
                 ]
-                },{
+                }
+                ,{
                   text:'GitHub',
                   items:[
                     {
@@ -103,29 +99,21 @@ module.exports = {
                       text:'advanced-java',
                       link:'https://github.com/doocs/advanced-java'
                     }
-                    ,{
-                      text:'',
-                      link:''
-                    }
-                    ,{
-                      text:'',
-                      link:''
-                    }
-                    ,{
-                      text:'',
-                      link:''
-                    }
                   ]
                 }
              ]
           },{
             text:'项目总结',
             link:'/projectsummary/'
+          },{
+            text:'数据库专题',
+            link:'/database/'
           }
         ],
         sidebar: {
           '/readnote/': genSidebarConfig('java基础','微服务'),
-          '/projectsummary/':genSideProblemConfig('数据库')
+          '/projectsummary/':genSideProblemConfig('数据库'),
+          '/database/':genSideDataBaseConfig('数据库专题')
         }
       }
     }
@@ -181,6 +169,18 @@ function genSideProblemConfig (groupA) {
       children: [
         '',
         'database'
+      ]
+    }
+  ]
+}
+function genSideDataBaseConfig (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
+        'Oracle'
       ]
     }
   ]
