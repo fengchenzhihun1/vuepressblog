@@ -8,11 +8,21 @@
 
      ```sql
     regexp_replace(regexp_repalce(字段,'[，]+',‘,’),'(^[,])|([,]$)','')
-     ```
+    ```
 
     
 
- 2. 
+ 2. 将一个字段安装某种规则拆分成数组
+
+     util_spit是一个自定义函数
+
+     ```sql
+     select 'a' , colum_value  from table（select util_spit(字段) from table）
+     ```
+
+     
+
+ 3. 
 
 ## sqlserver 
 
