@@ -1,12 +1,8 @@
-`
-
-
-
 # ORACLE整理
 
 ## oracle基础知识
 
-###  用户
+### 用户
 
 | 用户   | 作用                                                         |
 | ------ | ------------------------------------------------------------ |
@@ -30,9 +26,9 @@
 
 2. **文件操作**
 
-   * start和@
-     *  sql>start c:/a.sql
-     * .>@c:/a.sql
+   - start和@
+     - sql>start c:/a.sql
+     - .>@c:/a.sql
 
 3. **交互式命令**
 
@@ -60,20 +56,20 @@
 
 1. **管理对象的权限(授予权限，回收权限)**
 
-   *  grant select on scott.tmp to scott(用户）--授予权限
-   *   revoke select on scott.emp from scott（普通用户） --回收权限
+   - grant select on scott.tmp to scott(用户）--授予权限
+   - revoke select on scott.emp from scott（普通用户） --回收权限
 
 2. **预定义角色**
 
-   * connect角色
+   - connect角色
 
      在建立数据库时，由脚本自动建立。它授予用户最基本的权限
 
-   *  resource角色
+   - resource角色
 
-       建立数据库用户后，一般情况下只给用户授予connect和resource角色
+     建立数据库用户后，一般情况下只给用户授予connect和resource角色
 
-   * DBA角色    
+   - DBA角色    
 
      DBA角色具有所有系统权限和with admin option
 
@@ -86,11 +82,11 @@
 
 4. **权限管理--是指执行特定类型的sql语句或访问其他模式对象的权利**
 
-   *  oracle的的权限可以分成两大类：系统权限和对象权限
-     * 系统权限是指执行特定类型的sql语句的权利。它用于控制用户可以执行的一个或一组数据库操作
-     * 对象权限是指对象级控制数据库的存取和使用的机制，即访问其他用户对象的权利
+   - oracle的的权限可以分成两大类：系统权限和对象权限
+     - 系统权限是指执行特定类型的sql语句的权利。它用于控制用户可以执行的一个或一组数据库操作
+     - 对象权限是指对象级控制数据库的存取和使用的机制，即访问其他用户对象的权利
 
-### 系统权限的授予
+### 系统权限授予
 
   授予权限是由DBA完成的，如果要是以其他用户的身份授予系统权限，则要求该用户必须具有grant any privilege的系统权限，或者相应的系统权限具有 with admin option的权限
 
@@ -161,9 +157,9 @@ oracle 中的所有用户只能查看数据字典，都不可以修改其中的�
    select * from dba_tab_privs where grantee='xm' 
    ```
 
-7.  查询一个角色包含哪些系统权限（dba_sys_privs）
+7. 查询一个角色包含哪些系统权限（dba_sys_privs）
 
-8.  查询一个角色包含哪些对象权限（dba_tab_privs） 
+8. 查询一个角色包含哪些对象权限（dba_tab_privs） 
 
 9. 查询oracle中有哪些角色(dba_roles) 
 
@@ -171,7 +167,7 @@ oracle 中的所有用户只能查看数据字典，都不可以修改其中的�
    select * from dba_roles；
    ```
 
-10.  查询数据库名称 select * from global_name;----V_$（动态性能视图）
+10. 查询数据库名称 select * from global_name;----V_$（动态性能视图）
 
 ### 动态性能视图（了解）
 
@@ -190,34 +186,31 @@ select * from Vfixed_table  where name like 'V%';
  Oracle 5种内置字段的数据类型
 
 1. 字符数据类型
-   	   char数据类型：有固定的长度和最大长度的字符串。长度定 义在1-2000字节之间
-   	   varchar2 数据类型：可变长的，有最大长度的字母数字型数据 varchar2 类型的字段长度可以到达4000字
-
+    	   char数据类型：有固定的长度和最大长度的字符串。长度定 义在1-2000字节之间
+    	   varchar2 数据类型：可变长的，有最大长度的字母数字型数据 varchar2 类型的字段长度可以到达4000字
 2. 数值数据类型
-     数值数据类型的字段用于存储带符号的整数或浮点数。
-     ORACLE 中的number数据类型具有精确度precision和范围scale 
-
+   数值数据类型的字段用于存储带符号的整数或浮点数。
+   ORACLE 中的number数据类型具有精确度precision和范围scale 
 3. 日期时间数据类型
    date数据类型：用于存储日期的世纪，年，月，日，分和秒
    timestamp 数据类型：用于存储日期的年，月，日，以及时间的小时，分和秒
 4. LOB数据类型（“大对象”数据类型）
-     clob :存储大量字符数据，是内部LOB	
-     BLOB:存储较大的二进制对象
-     BFILE：存储二进制文件，是外部LOB	
-     ROWID数据类型:被称为“伪劣类型”，是base 64编码的字符串，用于唯一的标识一条记录
-      rownum---伪劣类型
+   clob :存储大量字符数据，是内部LOB	
+   BLOB:存储较大的二进制对象
+   BFILE：存储二进制文件，是外部LOB	
+   ROWID数据类型:被称为“伪劣类型”，是base 64编码的字符串，用于唯一的标识一条记录
+    rownum---伪劣类型
 
 ### 表管理（创建，修改，删除）   
 
 **创建表**
 
 1. create table 表名 （column_name datatype,column_name datatype.....);
-
-2.  增加和删除字段
+2. 增加和删除字段
 
 ?	todo
 
-3.  用查询的结果创建一张表
+3. 用查询的结果创建一张表
 
 ?	todo
 
@@ -390,18 +383,21 @@ clerk 普通员工salesman 销售  manager 经理 analyst 分析师  president �
 
    ```sql
    select * from emp
+   
    ```
 
 2. 检索empno ename job sal deptno
 
 ```sql
 select empno，ename,job,sal,deptno from emp
+
 ```
 
 3. 为列指定别名
 
    ```sql
    select empno as 员工编号，ename 员工姓名，job,sal，deptno from emp
+   
    ```
 
    
@@ -410,6 +406,7 @@ select empno，ename,job,sal,deptno from emp
 
    ```sql
    select sysdate from dual;
+   
    ```
 
 **过滤数据**
@@ -424,7 +421,7 @@ select empno，ename,job,sal,deptno from emp
 
 3. 字符串区分大小写
 
-4.  日期默认格式为dd-mon-yy
+4. 日期默认格式为dd-mon-yy
 
 5. 模糊查询,逻辑查询符
 
@@ -462,18 +459,21 @@ not  在使用多个逻辑运算符连接多个条件时，需要注意运算符
 
 ```sql
 select *from emp order by sal asc;
+
 ```
 
 **按照工资降序，部门号的升序进行排列**
 
 ```sql
 select * from emp order by sal desc，deptno asc；
+
 ```
 
 **使用列的别名**
 
 ```sql
 select * from ename,sal*12 “年薪” from emp order by “年薪” asc；
+
 ```
 
 **分组查询 group by （重点）**
@@ -482,6 +482,7 @@ select * from ename,sal*12 “年薪” from emp order by “年薪” asc；
 
 ```sql
 select * from avg（sal),max（sal),deptno from emp group by deptno;
+
 ```
 
 **having 子句的使用，主要是对分组后条件的限制**
@@ -490,6 +491,7 @@ select * from avg（sal),max（sal),deptno from emp group by deptno;
 
 ```
 select avg（sal) ,deptno from emp group by deptno and having avg(sal）< 2000;
+
 ```
 
 在查询的时候需要group by，having，order by
@@ -504,18 +506,21 @@ oracle中给查询结果添加伪列--查询emp表中的第6-10条
 
 ```sql
 select ename from emp;/select * from emp
+
 ```
 
 2 将查询的结构集的伪列添加进去  查询<=10条数据
 
 ```sql
  select rownum rn，e1.* from(select ename from rmp)e1 where rownum<=10
+
 ```
 
 3 将第二次查询的结果当做一张表，取出>=6 的数据
 
 ```sql
 select * from (select rownum rn,e1.* from (select * from emp order by HIREDATE desc) e1 where rownum <=10) e2 where e2.rn>=6; 
+
 ```
 
 **oracle 连接查询**
@@ -532,6 +537,7 @@ select * from (select rownum rn,e1.* from (select * from emp order by HIREDATE d
 
   ```sql
   select * from emp，dept;
+  
   ```
 
   
@@ -545,19 +551,22 @@ select * from (select rownum rn,e1.* from (select * from emp order by HIREDATE d
   左外连接：
 
   ```sql
-left outer join    left join
+  left outer join    left join
+  
   ```
 
   右外连接:
 
   ```sql
-right outer join    right join
+  right outer join    right join
+  
   ```
 
   全外连接  （左右两表都不加限制）
 
   ```sql
- full outer join 或者 full join
+   full outer join 或者 full join
+  
   ```
 
   内连接：以等号运算符为基础的连接
@@ -565,22 +574,22 @@ right outer join    right join
    自然连接：是内连接的一种情况，就是取消没有关联的数据
 
   例子: 通过连接查询全部记录：查询每个员工的所在部门的信息
-  
+
   ```sql
   select * from emp,dept where emp.deptno=dept.deptno；
+  
   ```
-  
+
   自然连接：
-  
+
   ```sql
   select emp.*,dept,dname,dept.loc from emp，dept where 
   
   emp.deptno=deptno.deptno;
+  
   ```
-  
-  
 
-### SQL中的函数
+  ### SQL中的函数
 
 **单行函数**
 
@@ -604,7 +613,7 @@ right outer join    right join
 | replace    | 替换     |
 |            |          |
 
-1.  大小写处理函数
+1. 大小写处理函数
 
    |                     |            |
    | ------------------- | ---------- |
@@ -622,7 +631,7 @@ right outer join    right join
 
 
 
-2.  字符处理函数
+2. 字符处理函数
 
    |                              |            |
    | ---------------------------- | ---------- |
@@ -658,6 +667,7 @@ mod(10,3)                                 1
 
   ```sql
     select months_between（sysdate,'29-5月-2007 ') from            dual；
+  
   ```
 
   2 add_months函数返回给指定的日期加上指定的月数后的日期值    
@@ -666,6 +676,7 @@ mod(10,3)                                 1
 
   ```sql
   select add_months(sysdate,2) from dual;
+  
   ```
 
   3 next_day 函数返回指定日期下一个星期几的日期 
@@ -676,12 +687,12 @@ mod(10,3)                                 1
   select sysdate，next_day（sysdate,'星期二'） from dual;
   
   select sysdate,next_day（sysdate,'星期三'） from dual;
+  
   ```
 
   
 
 - 转换函数
-
 
 
 

@@ -22,6 +22,7 @@ module.exports = {
     lastUpdated: 'Last Updated',
     repo: 'fengchenzhihun1/vuepressblog',
     editLinks: true,
+    sidebarDepth: 2,
     docsDir: 'docs',
     locales: {
       '/': {
