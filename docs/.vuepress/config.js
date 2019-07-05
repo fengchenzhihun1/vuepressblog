@@ -80,7 +80,10 @@ module.exports = {
                   },{
                     text:'二维码生成工具',
                     link:'https://cli.im'
-                  }
+                  },{
+                      text:'在线编码转换',
+                      link:'http://tool.chinaz.com/tools/native_ascii.aspx'
+                    }
                 ]
                 }
                 ,{
@@ -95,6 +98,9 @@ module.exports = {
                     },{
                       text:'free-programming-books-zh_CN',
                       link:'https://github.com/justjavac/free-programming-books-zh_CN'
+                    },{
+                      text:'advanced-java',
+                      link:'https://github.com/doocs/advanced-java'
                     },{
                       text:'advanced-java',
                       link:'https://github.com/doocs/advanced-java'
