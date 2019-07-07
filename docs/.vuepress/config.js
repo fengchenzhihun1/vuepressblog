@@ -118,7 +118,7 @@ module.exports = {
           }
         ],
         sidebar: {
-          '/readnote/': genSidebarConfig('java基础','微服务'),
+          '/readnote/': genSidebarConfig('java基础','微服务','设计模式·'),
           '/projectsummary/':genSideProblemConfig('数据库'),
           '/database/':genSideDataBaseConfig('数据库专题')
         }
@@ -148,24 +148,29 @@ module.exports = {
   ]
 }
 
-function genSidebarConfig (groupA, groupB) {
-  return [
-    {
+function genSidebarConfig (groupA, groupB, groupC) {
+  return [{
       title:groupA,
       collapsable: false,
       children: [
+        /*java基础*/
         'springThink'
       ]
-    },
-    {
+    },{
       title:groupB,
       collapsable: false,
       children: [
-        'microServiceFromDesignToDeploymen'
+        /*微服务*/
+        'microServiceFromDesignToDeploymen',
+      ]
+    },{
+      title:groupC,
+      collapsable: false,
+      children: [
+      /*设计模式*/
+        'design'
       ]
     }
-
-
   ]
 }
 function genSideProblemConfig (groupA) {
@@ -173,6 +178,7 @@ function genSideProblemConfig (groupA) {
     {
       title:groupA,
       collapsable: false,
+      /*数据库专题*/
       children: [
         '',
         'database'
