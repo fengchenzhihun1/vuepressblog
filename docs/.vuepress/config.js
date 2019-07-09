@@ -1,4 +1,4 @@
-module.exports = {
+﻿module.exports = {
   dest: 'vuepress',
   locales: {
     '/': {
@@ -121,6 +121,7 @@ module.exports = {
           '/readnote/': genSidebarConfig('java基础','java框架','编程思想'),
           '/projectsummary/':genSideProblemConfig('数据库'),
           '/database/':genSideDataBaseConfig('数据库专题')
+
         }
       }
     }
