@@ -29,7 +29,7 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页',
         nav: [
           {
-            text: '读书笔记',
+            text: 'java知识',
             link: '/readnote/'
           },{
              text: '网站链接',
@@ -118,7 +118,7 @@ module.exports = {
           }
         ],
         sidebar: {
-          '/readnote/': genSidebarConfig('java基础','微服务','设计模式·'),
+          '/readnote/': genSidebarConfig('java基础','java框架','编程思想'),
           '/projectsummary/':genSideProblemConfig('数据库'),
           '/database/':genSideDataBaseConfig('数据库专题')
         }
@@ -160,17 +160,18 @@ function genSidebarConfig (groupA, groupB, groupC) {
       title:groupB,
       collapsable: false,
       children: [
-        /*微服务*/
+        /*矿建*/
         'microServiceFromDesignToDeploymen',
       ]
     },{
       title:groupC,
       collapsable: false,
       children: [
-      /*设计模式*/
+      /*编程思想*/
+        'uml',
         'design'
       ]
-    }
+    },
   ]
 }
 function genSideProblemConfig (groupA) {
