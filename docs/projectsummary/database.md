@@ -17,12 +17,16 @@
      util_spit是一个自定义函数
 
      ```sql
-     select 'a' , colum_value  from table（select util_spit(字段) from table）
+     select 'a' , colum_value  from table（select util_spit(字段,',') from table）
      ```
 
      
 
- 3. 
+ 3. 审计
+
+     
+
+ 4. 
 
 ## sqlserver 
 
