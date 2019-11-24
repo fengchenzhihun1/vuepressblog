@@ -22,15 +22,23 @@
     lastUpdated: 'Last Updated',
     repo: 'fengchenzhihun1/vuepressblog',
     editLinks: true,
-    sidebarDepth: 2,
+    sidebarDepth: 4,
     docsDir: 'docs',
     locales: {
       '/': {
         editLinkText: '在 GitHub 上编辑此页',
         nav: [
           {
-            text: 'java知识',
+            text: '基础知识',
             link: '/readnote/'
+          },
+          {
+            text: '进阶',
+            link: '/advance/'
+          },          
+          {
+            text: '框架',
+            link: '/framwork/'
           },{
              text: '网站链接',
              items: [
@@ -118,10 +126,11 @@
           }
         ],
         sidebar: {
-          '/readnote/': genSidebarConfig('java基础','java框架','编程思想'),
-          '/projectsummary/':genSideProblemConfig('数据库'),
+          '/readnote/': genSidebarConfig('java核心技术','java设计模式','java算法与数据结构','微服务思想'),
+          '/advance/':genAdvanceConfig('多线程','高并发','分布式','JVM','NoSql数据库','中间件','源码','其他'),
+          '/framwork/':genFramWorkConfig('SpringFramWork','springBoot'),
+          '/projectsummary/':genSideProblemConfig('项目总结'), 
           '/database/':genSideDataBaseConfig('数据库专题')
-
         }
       }
     }
@@ -148,41 +157,136 @@
     }],
   ]
 }
-
-function genSidebarConfig (groupA, groupB, groupC) {
+/*java基础 */
+function genSidebarConfig (groupA, groupB, groupC, groupD) {
   return [{
       title:groupA,
       collapsable: false,
       children: [
-        /*java基础*/
+        /*java核心技术*/
         'springThink'
+      ]
+    },
+    {
+      title:groupB,
+      collapsable: false,
+      children: [
+      /*设计模式*/
+        'uml',
+        'design'
+      ]
+    },
+    {
+      title:groupC,
+      collapsable: false,
+      children: [
+         /*java数据结构与算法*/
+         ''
+
+      ]
+    },
+    {
+      /*微服务思想 */
+      title:groupD,
+      collapsable: false,
+      children: [
+        'microServiceFromDesignToDeploymen'
+      ]
+    },
+
+  ]
+}
+/* 进阶*/
+function genAdvanceConfig (groupA, groupB,groupC, groupD,groupE, groupF,groupG, groupH) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      /*多线程*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupB,
+      collapsable: false,
+      /*高并发*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupC,
+      collapsable: false,
+      /*分布式*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupD,
+      collapsable: false,
+      /*JVM*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupE,
+      collapsable: false,
+      /*NoSQL*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupF,
+      collapsable: false,
+      /*中间件*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupG,
+      collapsable: false,
+      /*源码*/
+      children: [
+        ''
+      ]
+    }, {
+      title:groupH,
+      collapsable: false,
+      /*其他*/
+      children: [
+        ''
+      ]
+    }
+  ]
+}
+/*框架 */
+function genFramWorkConfig (groupA, groupB) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
       ]
     },{
       title:groupB,
       collapsable: false,
       children: [
-        /*矿建*/
-        'microServiceFromDesignToDeploymen',
+        '',
       ]
-    },{
-      title:groupC,
-      collapsable: false,
-      children: [
-      /*编程思想*/
-        'uml',
-        'design'
-      ]
-    },
+    }
+
   ]
 }
+
+
 function genSideProblemConfig (groupA) {
   return [
     {
       title:groupA,
       collapsable: false,
-      /*数据库专题*/
       children: [
         '',
+        'mirproblem',
         'database'
       ]
     }
