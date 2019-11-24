@@ -181,7 +181,7 @@ function genSidebarConfig (groupA, groupB, groupC, groupD) {
       collapsable: false,
       children: [
          /*java数据结构与算法*/
-         ''
+         'datastructuresAndAlgorithms'
 
       ]
     },
