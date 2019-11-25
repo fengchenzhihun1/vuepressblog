@@ -19,10 +19,10 @@
   ],
   serviceWorker: true,
   themeConfig: {
-    lastUpdated: 'Last Updated',
+    lastUpdated: '上次更新',
     repo: 'fengchenzhihun1/vuepressblog',
     editLinks: true,
-    sidebarDepth: 4,
+    sidebarDepth: 2,
     docsDir: 'docs',
     locales: {
       '/': {
@@ -172,8 +172,11 @@ function genSidebarConfig (groupA, groupB, groupC, groupD) {
       collapsable: false,
       children: [
       /*设计模式*/
-        'uml',
-        'design'
+        'design/00_uml',
+        'design/01_pricle',
+        'design/02create_builder',
+        'design/03create_factory',
+          'design/test'
       ]
     },
     {

@@ -31,11 +31,11 @@
 
 * 图示
 
-  ![](../images/xishushuzu.png)
+  ![](../images/algorithm/xishushuzu.png)
 
 * **转换思路**
 
-  ![](../images/xishuArrayResult.png)
+  ![](../images/algorithm/xishuArrayResult.png)
 
   
 
