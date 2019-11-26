@@ -123,6 +123,9 @@
           },{
             text:'数据库专题',
             link:'/database/'
+          },{
+            text:'其他',
+            link:'/f_a_other/'
           }
         ],
         sidebar: {
@@ -131,7 +134,8 @@
           '/framwork/':genFramWorkConfig('SpringFramWork','springBoot'),
           '/projectsummary/':genSideProblemConfig('项目总结'), 
           '/database/':genSideDataBaseConfig('数据库专题'),
-          '/a_b_design/':genSidDesign("设计模式")
+          '/a_b_design/':genSidDesign("设计模式"),
+          '/f_a_other/':genSidOther("公开课")
         }
       }
     }
@@ -170,6 +174,18 @@ function genSidDesign (groupA) {
         '03_工厂方法',
         '04_建造者' 
 
+      ]
+    }
+  ]
+}
+function genSidOther (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+          '',
+         '源码'
       ]
     }
   ]
