@@ -2,7 +2,7 @@
 
 ## 类图整体图
 
-![](../../images/design/UMLClassPic.png)
+![](../images/design/UMLClassPic.png)
 
 ## 整体结构图概要
 

@@ -22,7 +22,7 @@
     lastUpdated: '上次更新',
     repo: 'fengchenzhihun1/vuepressblog',
     editLinks: true,
-    sidebarDepth: 2,
+    sidebarDepth: 4,
     docsDir: 'docs',
     locales: {
       '/': {
@@ -30,7 +30,7 @@
         nav: [
           {
             text: '基础知识',
-            link: '/readnote/'
+            link: '/a_a_a_basicknowledge/'
           },
           {
             text: '进阶',
@@ -126,11 +126,12 @@
           }
         ],
         sidebar: {
-          '/readnote/': genSidebarConfig('java核心技术','java设计模式','java算法与数据结构','微服务思想'),
+          '/a_a_a_basicknowledge/': genSidebarConfig('java核心技术','java设计模式','java算法与数据结构'),
           '/advance/':genAdvanceConfig('多线程','高并发','分布式','JVM','NoSql数据库','中间件','源码','其他'),
           '/framwork/':genFramWorkConfig('SpringFramWork','springBoot'),
           '/projectsummary/':genSideProblemConfig('项目总结'), 
-          '/database/':genSideDataBaseConfig('数据库专题')
+          '/database/':genSideDataBaseConfig('数据库专题'),
+          '/a_b_design/':genSidDesign("设计模式")
         }
       }
     }
@@ -157,6 +158,22 @@
     }],
   ]
 }
+function genSidDesign (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
+        '01_UML图',
+        '02-设计原则',
+        '03_工厂方法',
+        '04_建造者' 
+
+      ]
+    }
+  ]
+}
 /*java基础 */
 function genSidebarConfig (groupA, groupB, groupC, groupD) {
   return [{
@@ -164,7 +181,7 @@ function genSidebarConfig (groupA, groupB, groupC, groupD) {
       collapsable: false,
       children: [
         /*java核心技术*/
-        'springThink'
+        '核心技术'
       ]
     },
     {
@@ -172,31 +189,17 @@ function genSidebarConfig (groupA, groupB, groupC, groupD) {
       collapsable: false,
       children: [
       /*设计模式*/
-        'design/00_uml',
-        'design/01_pricle',
-        'design/02create_builder',
-        'design/03create_factory',
-          'design/test'
-      ]
+        '设计模式'
+  ]
     },
     {
       title:groupC,
       collapsable: false,
       children: [
          /*java数据结构与算法*/
-         'datastructuresAndAlgorithms'
-
+         '数据结构与算法'
       ]
-    },
-    {
-      /*微服务思想 */
-      title:groupD,
-      collapsable: false,
-      children: [
-        'microServiceFromDesignToDeploymen'
-      ]
-    },
-
+    }
   ]
 }
 /* 进阶*/
@@ -302,7 +305,7 @@ function genSideDataBaseConfig (groupA) {
       collapsable: false,
       children: [
         '',
-        'Oracle'
+        '数据库'
       ]
     }
   ]
