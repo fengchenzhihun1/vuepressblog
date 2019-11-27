@@ -172,7 +172,8 @@ function genSidDesign (groupA) {
         '01_UML图',
         '02-设计原则',
         '03_工厂方法',
-        '04_建造者' 
+        '04_建造者' ,
+        '05_单例模式'
 
       ]
     }
@@ -226,7 +227,7 @@ function genAdvanceConfig (groupA, groupB,groupC, groupD,groupE, groupF,groupG, 
       collapsable: false,
       /*多线程*/
       children: [
-        ''
+        '多线程/多线程概念'
       ]
     }, {
       title:groupB,
