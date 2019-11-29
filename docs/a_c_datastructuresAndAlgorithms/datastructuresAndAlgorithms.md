@@ -37,9 +37,24 @@
 
   ![](../images/algorithm/xishuArrayResult.png)
 
-  
 
-* 
+## 队列
+
+* 是一个有序列表可以用数组和链表
+* 先进先出
+
+### 数组模拟队列
+
+* 将尾指针往后移动：rear+，当front=rear空
+* 若尾指针rear小于队列的最大下标maxSize-1，则将数据存入rear所指的数组元素中，否则无法存入数据，rear==maxsize-1队列满
+
+
+
+
+
+
+
+
 
 
 

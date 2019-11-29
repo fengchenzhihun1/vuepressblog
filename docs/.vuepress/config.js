@@ -168,7 +168,6 @@ function genSidDesign (groupA) {
       title:groupA,
       collapsable: false,
       children: [
-        '',
         '01_UML图',
         '02-设计原则',
         '03_工厂方法',

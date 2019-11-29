@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.png
 actionText: 跟我来学做菜吧 →
-actionLink: /readnote/
+actionLink: /advance/
 features:
 - title: 计算机基础
   details: 深入学习计算机基础。计算机组成、网络、操作系统、数据结构、数据库、linux
