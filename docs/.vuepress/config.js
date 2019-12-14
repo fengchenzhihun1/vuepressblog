@@ -126,12 +126,16 @@
           },{
             text:'其他',
             link:'/f_a_other/'
+          },{
+            text:'黑马57期',
+            link:'/blackhouse57/'
           }
         ],
         sidebar: {
           '/a_a_a_basicknowledge/': genSidebarConfig('java核心技术','java设计模式','java算法与数据结构'),
           '/advance/':genAdvanceConfig('多线程','高并发','分布式','JVM','NoSql数据库','中间件','源码','其他'),
           '/framwork/':genFramWorkConfig('SpringFramWork','springBoot'),
+          '/blackhouse57/':genBlackHouse57Config('java教程'),
           '/projectsummary/':genSideProblemConfig('项目总结'), 
           '/database/':genSideDataBaseConfig('数据库专题'),
           '/a_b_design/':genSidDesign("设计模式"),
@@ -276,6 +280,18 @@ function genAdvanceConfig (groupA, groupB,groupC, groupD,groupE, groupF,groupG, 
       /*其他*/
       children: [
         ''
+      ]
+    }
+  ]
+}
+/*黑马57期教程 */
+function genBlackHouse57Config(groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
       ]
     }
   ]
