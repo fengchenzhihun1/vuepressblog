@@ -128,14 +128,14 @@
             link:'/f_a_other/'
           },{
             text:'黑马57期',
-            link:'/blackhouse57/'
+            link:'/blackhouse57/basicgrammar/'
           }
         ],
         sidebar: {
           '/a_a_a_basicknowledge/': genSidebarConfig('java核心技术','java设计模式','java算法与数据结构'),
           '/advance/':genAdvanceConfig('多线程','高并发','分布式','JVM','NoSql数据库','中间件','源码','其他'),
           '/framwork/':genFramWorkConfig('SpringFramWork','springBoot'),
-          '/blackhouse57/':genBlackHouse57Config('java教程'),
+          '/blackhouse57/basicgrammar/':genBlackHouse57Config('java教程'),
           '/projectsummary/':genSideProblemConfig('项目总结'), 
           '/database/':genSideDataBaseConfig('数据库专题'),
           '/a_b_design/':genSidDesign("设计模式"),
@@ -292,6 +292,16 @@ function genBlackHouse57Config(groupA) {
       collapsable: false,
       children: [
         '',
+        'day01【Object类、常用API】-笔记',
+        'day02【Collection、泛型】-笔记',
+        'day03【List、Set】',
+        'day04【Map】',
+        'day05【异常、线程】',
+        'day07【线程池、Lambda表达式】',
+        'day08【File类、递归】',
+        'day09【字节流、字符流】',
+        'day10【缓冲流、转换流、序列化流、打印流】',
+        'day11【网络编程】'
       ]
     }
   ]

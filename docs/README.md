@@ -16,3 +16,6 @@ footer: MIT Licensed | Copyright © 2019-present Mrs chen
 ::: tip 坚持就是胜利
 拒绝三天打网，两天晒鱼
 :::
+
+图片名称不能使用中文，且图片不能与当前文档在同一个文件夹下一般要放在doc/images中
+每一个层级默认对应的文件是README.md
