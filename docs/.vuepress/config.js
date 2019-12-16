@@ -138,7 +138,8 @@
           '/blackhouse57/basicgrammar/':genBlackHouse57Config('java教程'),
           '/projectsummary/':genSideProblemConfig('项目总结'), 
           '/database/':genSideDataBaseConfig('数据库专题'),
-          '/a_b_design/':genSidDesign("设计模式"),
+          '/a_c_datastructuresAndAlgorithms/':genSidDatastructuresAndAlgorithms("设计模式"),
+          '/a_b_design/':genSidDesign("数据结构与算法"),
           '/f_a_other/':genSidOther("公开课")
         }
       }
@@ -178,6 +179,18 @@ function genSidDesign (groupA) {
         '04_建造者' ,
         '05_单例模式'
 
+      ]
+    }
+  ]
+}
+function genSidDatastructuresAndAlgorithms (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        'datastructuresAndAlgorithms',
+        'jk数据结构与算法之美学习笔记',
       ]
     }
   ]
