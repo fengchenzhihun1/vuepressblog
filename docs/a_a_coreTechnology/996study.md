@@ -298,7 +298,349 @@
     
       
     
-    * 
+
+##  使用工具（Lombok）
+
+* 简介
+
+  ![](../images/996/20191217193339.png)
+
+* 实现原理
+
+  * 注解的两种解析方式
+    * 运行时解析
+    * 编译时解析
+      * Annotation Processing Tool(注解处理器)
+      * Pluggable Annotation Processing API(JSR269插入式注解处理器)
+      * ![](../images/996/20191217194735.png)
+
+* 常用注解
+
+  ![](../images/996/20191217194825.png)
+
+* 相关注解
+
+  注解内部可以添加参数  
+
+  @val弱语言变量比如var根据值的情况进行推断
+
+  @NonNull生成非空检查作用在方法上
+
+  @Cleanup资源关闭
+
+* Lombok优缺点
+
+  * 优点
+    * 通过注解自动生成样板代码，提高开发效率
+    * 代码简洁，只关注相关属性
+    * 新增属性后，无需刻意修改相关方法
+  * 缺点
+    * 降低了源代码的可读性和完整性
+    * 加大对问题排查的难度
+    * 需要IDE的相关插件支持
+
+## 验证框架
+
+* 分层验证与JavaBean验证
+
+  ![](../images/996/20191217203552.png)
+
+  ![](../images/996/20191217203631.png)
+
+* Bean Validation简介
+
+  为JavaBean验证定义了相对应的元数据模型和API
+
+* JCP、JSR简介
+
+  ![](../images/996/20191217204832.png)
+
+  ![](../images/996/20191217205018.png)
+
+  ![](../images/996/20191217205059.png)
+
+* 常用约束注解
+
+* ![](../images/996/20191217205138.png)
+
+* 相关校验注解代码
+
+  * 实体类
+
+  ```java
+  package com.chenfeng.study996.study996.validate;
+  
+  import lombok.Data;
+  import org.hibernate.validator.constraints.Length;
+  
+  import javax.validation.GroupSequence;
+  import javax.validation.Valid;
+  import javax.validation.constraints.*;
+  import javax.validation.groups.Default;
+  import java.util.Date;
+  import java.util.List;
+  
+  /**
+   * @Classname UserInfo
+   * @Description TODO
+   * @Date 2019/12/17 21:07
+   * @Created by  wrsChen
+   */
+  @Data
+  public class UserInfo {
+  
+      public interface LoginGroup {
+  
+      }
+      public interface RegisterGroup {
+  
+      }
+  
+      /**
+       * 组排序场景
+       */
+      @GroupSequence({
+              LoginGroup.class,
+              Readable.class,
+              Default.class
+      })
+      public interface Group{
+  
+      }
+  
+      @NotNull(message = "用户id不能为空字符串")
+      private String userId;
+      @NotEmpty(message = "用户名称不能为空")
+      private String userName;
+      /**
+       * 自动去除字符串的空格
+       * */
+      @NotBlank(message = "不能为空", groups = LoginGroup.class)
+      @Length(min = 6,max=20,message = "密码不能小于6位大于20位")
+      private String password;
+      @Email(message = "邮箱格式不正确")
+      private String email;
+      @Min(value = 18, message = "不能小于18")
+      @Max(value = 60, message = "不能超过60")
+      private Integer age;
+      private String phone;
+      @Past(message = "不能是未来的时间点")
+      private Date birthday;
+      /**
+       * @Valid 级联验证
+       *
+       */
+      @Size(min = 1, message = "至少有一个元素")
+      private List<@Valid UserInfo> friends;
+  
+  
+  
+  }
+  
+  ```
+
+  * 服务类
+
+    ```java
+    package com.chenfeng.study996.study996.validate;
+    
+    import javax.validation.Valid;
+    import java.security.PublicKey;
+    
+    /**
+     * @Classname UserInfoService
+     * @Description TODO
+     * @Date 2019/12/17 21:50
+     * @Created by  wrsChen
+     */
+    public class UserInfoService {
+        public void setUseinfo(@Valid UserInfo useinfo) {
+    
+        }
+    
+        public UserInfo getUseinfo() {
+            return new UserInfo();
+        }
+    
+        public UserInfoService() {
+    
+        }
+    
+        public UserInfoService(@Valid UserInfo userInfo) {
+    
+        }
+    
+    
+    
+    }
+    
+    ```
+
+  * 测试类
+
+    ```java
+    package com.chenfeng.study996.study996.validate;
+    
+    import org.junit.After;
+    import org.junit.Before;
+    import org.junit.Test;
+    
+    import javax.validation.ConstraintViolation;
+    import javax.validation.Validation;
+    import javax.validation.Validator;
+    import javax.validation.executable.ExecutableValidator;
+    import java.lang.reflect.Constructor;
+    import java.lang.reflect.InvocationTargetException;
+    import java.lang.reflect.Method;
+    import java.util.Set;
+    
+    /**
+     * @Classname ValidateTest
+     * @Description TODO
+     * @Date 2019/12/17 21:09
+     * @Created by  wrsChen
+     */
+    public class ValidateTest {
+        private Validator validator;
+        private UserInfo userInfo;
+        private Set<ConstraintViolation<UserInfo>> set;
+        private Set<ConstraintViolation<UserInfoService>> otherSet;
+    
+        @Before
+        public void init() {
+            validator = Validation.buildDefaultValidatorFactory().getValidator();
+            userInfo = new UserInfo();
+        }
+        @Test
+        public void nullValidata(){
+            set = validator.validate(userInfo);
+        }
+        @Test
+        public void groupValidata() {
+            set = validator.validate(userInfo, UserInfo.LoginGroup.class);
+        }
+    
+        @Test
+        public void groupSortValidata() {
+            set = validator.validate(userInfo, UserInfo.Group.class);
+        }
+    
+    
+        @After
+        public void print() {
+            set.forEach(item -> System.out.println(item.getMessage()));
+        }
+    
+        /**
+         * 对参数进行检验
+         */
+        @Test
+        public void paramValidation() throws NoSuchMethodException {
+            ExecutableValidator executableValidator = validator.forExecutables();
+            UserInfoService userInfoService = new UserInfoService();
+            Method method = userInfoService.getClass().getMethod("setUseinfo", UserInfo.class);
+           // 方法参数
+            Object[] paramObjects = new Object[]{new UserInfo()};
+            otherSet = executableValidator.validateParameters(
+                    userInfoService,
+                    method,
+                    paramObjects
+            );
+        }
+        /**
+         * 对返回值进行检验
+         */
+        @Test
+        public void returnValueValidation() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+            ExecutableValidator executableValidator = validator.forExecutables();
+            UserInfoService userInfoService = new UserInfoService();
+            // 待验证方法
+            Method method = userInfoService.getClass().getMethod("setUseinfo", UserInfo.class);
+            // 调用方法拿到返回值
+            Object returnValue = method.invoke(userInfoService);
+            otherSet = executableValidator.validateReturnValue(
+                    userInfoService,
+                    method,
+                    returnValue
+            );
+        }
+    
+        /**
+         * 对返回值进行检验
+         */
+        @Test
+        public void constructorValidation() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+            ExecutableValidator executableValidator = validator.forExecutables();
+            UserInfoService userInfoService = new UserInfoService();
+            //
+            Constructor constructor = UserInfoService.class.getConstructor(UserInfo.class);
+            //
+            Object[] param = new Object[]{new UserInfo()};
+            otherSet = executableValidator.validateConstructorParameters(
+                    constructor, param
+            );
+        }
+    }
+    
+    ```
+
+* 自定义注解
+
+  * 注解类
+
+    ```java
+    package com.chenfeng.study996.study996.validate;
+    
+    import javax.validation.Constraint;
+    import javax.validation.Payload;
+    import java.lang.annotation.*;
+    
+    /**
+     * @Classname Phone
+     * @Description TODO
+     * @Date 2019/12/17 22:15
+     * @Created by  wrsChen
+     */
+    @Documented
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Constraint(validatedBy = PhoneValidator.class)
+    
+    public @interface Phone {
+        String message() default "手机号出现错误";
+        Class<?>[] groups() default {};
+        Class<? extends Payload>[] payload() default {};
+    }
+    
+    ```
+
+  * 注解实现
+
+    ```java
+    package com.chenfeng.study996.study996.validate;
+    
+    import javax.validation.ConstraintValidator;
+    import javax.validation.ConstraintValidatorContext;
+    
+    /**
+     * @Classname PhoneValidator
+     * @Description TODO
+     * @Date 2019/12/17 22:19
+     * @Created by  wrsChen
+     */
+    public class PhoneValidator implements ConstraintValidator<Phone, String> {
+       public void initialize(Phone constraint) {
+       }
+    
+       public boolean isValid(String obj, ConstraintValidatorContext context) {
+        //处理规则
+        return false;
+       }
+    }
+    
+    ```
+
+    
 
 ​    
 
