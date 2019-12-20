@@ -250,7 +250,7 @@ function genAdvanceConfig (groupA, groupB,groupC, groupD,groupE, groupF,groupG, 
       collapsable: false,
       /*高并发*/
       children: [
-        ''
+        'java虚拟机/圣思园jvm'
       ]
     }, {
       title:groupC,
