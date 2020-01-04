@@ -312,5 +312,93 @@ class MyParent4{
 
 ```
 
+Xshot-0078.png
+
+![](../../images/jvm/Xshot-0078.png)
+
+## 接口初始化，以及准备阶段的重要意义
+
+```java
+package com.chenfeng.jvm.classloader;
+
+/**
+ * @Classname MyParent5
+ * @Description TODO
+ * @Date 2019/12/26 21:56
+ * @Created by  wrsChen
+ */
+
+/**
+ * 当一个接口在初始化时，并不要求其父接口都完成初始化
+ * 只有在真正使用到父类接口的时候（如引用接口中所定义的常量时），才会初始化。
+ */
+public class Mytest5{
+ public static void main(String[] args) {
+  System.out.println(MyParent5.a);
+ }
+}
+
+interface MyParent5 {
+/**
+ * 接口中定义的字段默认是public static
+ */
+ int a = 5;
+}
+
+interface Mychildren5 extends MyParent5{
+  int b = 5;
+}
 
 
+```
+
+```java
+package com.chenfeng.jvm.classloader;
+
+/**
+ * @Classname Singleton
+ * @Description TODO
+ * @Date 2019/12/26 22:22
+ * @Created by  wrsChen
+ */
+
+/**
+ * 准备
+ * 初始化
+ */
+public class MyTest6{
+    public static void main(String[] args) {
+        Singleton.getInstance();
+    }
+}
+class Singleton {
+    public static int counter1;
+
+    private static Singleton singleton = new Singleton();
+    private Singleton() {
+        counter1++;
+        counter2++;// 准备阶段的重要意义，若果在准备阶段没有赋默认值是会报错的
+    }
+    public static int counter2 = 0;
+    public static Singleton getInstance(){
+        return singleton;
+    }
+}
+
+```
+
+## 类加载器深入解析即重要意义
+
+![](../../images/jvm/Xshot-0079.png)
+
+![](../../images/jvm/Xshot-0080.png)
+
+* 类的加载
+
+  bootstrap也叫启动类加载器
+
+  ![](../../images/jvm/Xshot-0081.png)
+
+  ![](../../images/jvm/Xshot-0082.png)
+
+* 

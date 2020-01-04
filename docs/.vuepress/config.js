@@ -1,4 +1,5 @@
-﻿module.exports = {
+﻿
+module.exports = {
   dest: 'vuepress',
   locales: {
     '/': {
@@ -129,6 +130,9 @@
           },{
             text:'黑马57期',
             link:'/blackhouse57/basicgrammar/'
+          },{
+            text:"英语学习",
+            link:"/englishstudy/"
           }
         ],
         sidebar: {
@@ -140,7 +144,8 @@
           '/database/':genSideDataBaseConfig('数据库专题'),
           '/a_c_datastructuresAndAlgorithms/':genSidDatastructuresAndAlgorithms("设计模式"),
           '/a_b_design/':genSidDesign("数据结构与算法"),
-          '/f_a_other/':genSidOther("公开课")
+          '/f_a_other/':genSidOther("公开课"),
+          '/englishstudy/':englishStudy("李笑来英语学习")
         }
       }
     }
@@ -165,6 +170,30 @@
       before: info => `<UpgradePath title="${info}">`,
       after: '</UpgradePath>',
     }],
+  ]
+}
+    /**
+     * 李笑来英语学习
+     * @param groupA
+     */
+function englishStudy (groupA) {
+  return [
+    {
+      title:groupA,
+      collapsable: false,
+      children: [
+        '',
+        'chapter1',
+        'chapter2',
+        'chapter3',
+        'chapter4',
+        'chapter5',
+        'chapter6',
+        'chapter7',
+        'chapter8',
+        'end'
+      ]
+    }
   ]
 }
 function genSidDesign (groupA) {
